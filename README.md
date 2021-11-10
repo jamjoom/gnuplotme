@@ -106,7 +106,7 @@ nuplotme --file mydata.tex xaxis 1
 
 ![ex2](examples/ex2.jpg?raw=true "Example 2")
   
-You can also see the other two files: the gnu file ex2.gnu and data file ex2.data
+You can also see the other two files: the gnu file [ex2.gnu](examples/ex2.gnu) and data file [ex2.data](examples/ex2.data)
 
 To add labels:
 
@@ -137,7 +137,7 @@ gnuplotme --file mydata.txt xaxis 1
 
 ![ex3](examples/ex3.jpg?raw=true "Example 3")
   
-You can also see the other two files: the gnu file ex3.gnu and data file ex3.data
+You can also see the other two files: the gnu file [ex3.gnu](examples/ex3.gnu) and data file [ex3.data](examples/ex3.data)
 
 Additional Controls
 
@@ -199,7 +199,7 @@ gnuplotme --file mydata.txt xaxis 1
 
 ![ex4](examples/ex4.jpg?raw=true "Example 4")  
   
-You can also see the other two files: the gnu file ex4.gnu and data file ex4.data
+You can also see the other two files: the gnu file [ex4.gnu](examples/ex4.gnu) and data file [ex4.data](examples/ex4.data)
 
 ## PLOTTING MATHEMATICAL FUNCTIONS
 
@@ -243,7 +243,7 @@ will plot the values of y with a legend name of RTT and on left axis.
 
 ![ex5](examples/ex5.jpg?raw=true "Example 5")  
 
-You can also see the other two files: the gnu file ex5.gnu and data file ex5.data
+You can also see the other two files: the gnu file [ex5.gnu](examples/ex5.gnu) and data file [ex5.data](examples/ex5.data)
 
 Recall, if the axis name is omitted, the left one is used by default. Here is another example is:
 
@@ -262,8 +262,8 @@ will plot the difference between corresponding square values of x and y on the r
 
 ![ex6](examples/ex6.jpg?raw=true "Example 6")
 
-You can also see the other two files: the gnu file ex6.gnu and data file ex6.data
-
+You can also see the other two files: the gnu file [ex6.gnu](examples/ex6.gnu) and data file [ex6.data](examples/ex6.data)
+  
 ### How functions are computed?
 
 A function takes as input one value from each variable. Notice that the functions do not allow manipulating more than one point at a time from all variables. That is, if x=[6,12,18,24,30,36], y=[5,10,15,20,25,30], and f(x,y) = x**2 - y**2 then the result will be [11,44,99,176,275,396].
@@ -288,7 +288,7 @@ will plot the difference between each value of x and the mean of all values, wit
 
 ![ex7](examples/ex7.jpg?raw=true "Example 7")  
 
-You can also see the other two files: the gnu file ex7.gnu and data file ex7.data
+You can also see the other two files: the gnu file [ex7.gnu](examples/ex7.gnu) and data file [ex7.data](examples/ex7.data)
 
 ## AVERAGES, CONFIDENCE INTERVALS, AND REMOVING OUTLIERS
 
@@ -314,7 +314,7 @@ will plot the average points of the variable z with the confidence bars.
   
 ![ex8](examples/ex8.jpg?raw=true "Example 8")
   
-You can also see the other two files: the gnu file ex8.gnu and data file ex8.data
+You can also see the other two files: the gnu file [ex8.gnu](examples/ex8.gnu) and data file [ex8.data](examples/ex8.data)
 
 Reminder, when plotting a function, the confidence interval is not plotted. For example,
 

@@ -101,8 +101,8 @@ mydata.txt:
 Now, lets use the first column as the x-axis and the second column for the data series. I also used jpeg for output format. This way it can displayed properly on the browser:
 
 ```
-gnuplotme --file [mydata.txt](examples/mydata.txt) xaxis 1 
---file [mydata.txt](examples/mydata.txt) first 2 
+gnuplotme --file mydata.txt xaxis 1 
+--file mydata.txt first 2 
 --outfile ex1 jpeg
 ```
 
@@ -128,9 +128,9 @@ specifies the title of the graph, it should be in quotes. It is drawn above the 
 Back to our example, lets add x- and y-labels:
 
 ```
-gnuplotme --file [mydata.txt](examples/mydata.txt) xaxis 1 
---file [mydata.txt](examples/mydata.txt) first 2 
---file [mydata.txt](examples/mydata.txt) second 3 
+gnuplotme --file mydata.txt xaxis 1 
+--file mydata.txt first 2 
+--file mydata.txt second 3 
 --xlabel "Days"
 --ylabel "Cost (USD)"
 --title "Output Per Capita"
@@ -189,9 +189,9 @@ If a file (or variable defined below) has too many sample points, you can very e
 Back to our example, lets subsample by 2 (i.e., will use every 2nd sample point in the plot):
 
 ```
-gnuplotme --file [mydata.txt](examples/mydata.txt) xaxis 1 
---file [mydata.txt](examples/mydata.txt) first 2 
---file [mydata.txt](examples/mydata.txt) second 3 
+gnuplotme --file mydata.txt xaxis 1 
+--file mydata.txt first 2 
+--file mydata.txt second 3 
 --xlabel "Days"
 --ylabel "Cost (USD)"
 --title "Cost Per Capita"
@@ -214,7 +214,7 @@ Any mathematical function that is supported in Perl can be plotted in gnuplotme.
 For example,
 
 ```
---set x file [foo.1](examples/foo.1) 2
+--set x file foo.1 2
 ```
 
 defines x as a variable with values extracted from the second column of the file [foo.1](examples/foo.1), or
@@ -299,14 +299,14 @@ gnuplotme also provides simple method for averaging data from multiple files and
 Here is an example,
 
 ```
---set z avg 2 1 95 [foo.1](examples/foo.1) [foo.2](examples/foo.2) [foo.3](examples/foo.3) [foo.4](examples/foo.4)
+--set z avg 2 1 95 foo.1 foo.2 foo.3 foo.4
 ```
 
 will average the second column of files [foo.1](examples/foo.1), [foo.2](examples/foo.2), [foo.3](examples/foo.3), and [foo.4](examples/foo.4). It also computes the 95% confidence interval. Other allowed confidence values are `20`, `40`, `60`, `80`, `90`, `95`, `98`, and `99` intervals. The variable z will contain the average values of the four files, which can then be used just like any other value. The confidence interval is only plotted when the variable is specified by itself in the `--plot` command. For example,
 
 ```
 gnuplotme --set x file foo.1 1
---set z avg 2 1 95 [foo.1](examples/foo.1) [foo.2](examples/foo.2) [foo.3](examples/foo.3) [foo.4](examples/foo.4)
+--set z avg 2 1 95 foo.1 foo.2 foo.3 foo.4
 --plot x xaxis 
 --plot z avg_example
 --outfile ex8 jpeg 

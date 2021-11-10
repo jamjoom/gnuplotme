@@ -10,7 +10,8 @@ Ever wanted to plot, manipulate, and compare data. gnuplotme is a simple and int
 * Creates confidence interval across averaged input
 * Plots any mathematical function that can be written in perl (e.g., plot your data against a closed-form function)
 * Allows data series from lists or interval ranges (useful to automatically create x-axis values)
-* Outputs to different formats * Creates both gnu file (which contains gnu script) and text file (which contains all manipulated data and is useful for later use or to import into excel)
+* Outputs to different formats 
+* Creates both gnu file (which contains gnu script) and text file (which contains all manipulated data and is useful for later use or to import into excel)
 
 ## INSTALLATION
 
@@ -52,11 +53,11 @@ advanced options:
 
 ## THE BASICS
 
-Most of the options (I hope) are self-explanatory. Let's start with the output files, which should help explain the examples here
+Most of the options (I hope) are self-explanatory. Let's start with the output files, which should help explain the examples here.
 
 ## OUTPUT
 
-gnuplotme produces three files. These are: filename.data, filename.gnu, and filename.eps (or filename.png or filename.jpeg), where the <filename> is specified with the --outfile option:
+gnuplotme produces three files. These are: filename.data, filename.gnu, and filename.eps (or filename.png or filename.jpeg), where the `<filename>` is specified with the `--outfile` option:
 
 ```
 --outfile <file_name> [eps | png | jpeg];
@@ -76,11 +77,12 @@ There are a number of ways to specify input data for gnuplotme. At minimum, you 
 
 --file specifies the column in the file <file_name> to be plotted. It also specifies the label to be used in the legend key. Important: columns in the input file can be separated by spaces or tabs (not commas).
 
-In --file, if <plot_label> is as "xaxis", the corresponding values are used as values for the x-axis. You should specify the xaxis values first, otherwise gnuplotme gets confused. (Yes, I will fix this soon).
+In `--file`, if `<plot_label>` is `xaxis`, the corresponding values are used as values for the x-axis. You should specify the xaxis values first, otherwise gnuplotme gets confused.
+
 
 ### Simple Example:
 
-Lets start with a simple example. This is a file (called mydata.txt) that contains the following:
+Lets start with a simple example. This is a file (called [mydata.txt](examples/mydata.txt)) that contains the following:
 
 ```
 mydata.txt:
@@ -99,8 +101,8 @@ mydata.txt:
 Now, lets use the first column as the x-axis and the second column for the data series. I also used jpeg for output format. This way it can displayed properly on the browser:
 
 ```
-nuplotme --file mydata.tex xaxis 1 
---file mydata.txt first 2 
+gnuplotme --file [mydata.txt](examples/mydata.txt) xaxis 1 
+--file [mydata.txt](examples/mydata.txt) first 2 
 --outfile ex1 jpeg
 ```
 
@@ -115,7 +117,7 @@ To add labels:
 --ylabel <y_axes_label> [<axis>]
 ```
 
-specifies the labels for the x and y axes, respectively. The label should be in quotes. For -ylabel, the [<axis>] is an optional parameter that is either "left" or "right" (default is left)
+specifies the labels for the x and y axes, respectively. The label should be in quotes. For `--ylabel`, the `[<axis>]` is an optional parameter that is either `left` or `right` (default is left)
 
 ```
 --title <title>
@@ -126,9 +128,9 @@ specifies the title of the graph, it should be in quotes. It is drawn above the 
 Back to our example, lets add x- and y-labels:
 
 ```
-gnuplotme --file mydata.txt xaxis 1 
---file mydata.txt first 2 
---file mydata.txt second 3 
+gnuplotme --file [mydata.txt](examples/mydata.txt) xaxis 1 
+--file [mydata.txt](examples/mydata.txt) first 2 
+--file [mydata.txt](examples/mydata.txt) second 3 
 --xlabel "Days"
 --ylabel "Cost (USD)"
 --title "Output Per Capita"
@@ -146,7 +148,7 @@ Additional Controls
 --yrange <low:hi> [<axis>]
 ```
 
-specifies the range for the x and y axes, respectively the [<axis>] is an optional parameter that is either "left" or "right" (default is left).
+specifies the range for the x and y axes, respectively the `[<axis>]` is an optional parameter that is either `left` or `right` (default is left).
 
 ```
 --key <x,y>
@@ -174,11 +176,11 @@ is used to change the ticks on either the left or right axes.
 
 ### Specifying data on right y-axis
 
-All lines specified by the --file option are plotted on the left axis. If the right axis is desired, the --set and --plot options must be used. I'll show you an example in a little bit.
+All lines specified by the `--file` option are plotted on the left axis. If the right axis is desired, the `--set` and `--plot` options must be used. I'll show you an example in a little bit.
 
 ## SUBSAMPLING YOUR DATA
 
-If a file (or variable defined below) has too many sample points, you can very easily subsample the data using the --subsample option.
+If a file (or variable defined below) has too many sample points, you can very easily subsample the data using the `--subsample` option.
 
 ```
 --subsample <period>
@@ -187,9 +189,9 @@ If a file (or variable defined below) has too many sample points, you can very e
 Back to our example, lets subsample by 2 (i.e., will use every 2nd sample point in the plot):
 
 ```
-gnuplotme --file mydata.txt xaxis 1 
---file mydata.txt first 2 
---file mydata.txt second 3 
+gnuplotme --file [mydata.txt](examples/mydata.txt) xaxis 1 
+--file [mydata.txt](examples/mydata.txt) first 2 
+--file [mydata.txt](examples/mydata.txt) second 3 
 --xlabel "Days"
 --ylabel "Cost (USD)"
 --title "Cost Per Capita"
@@ -212,10 +214,10 @@ Any mathematical function that is supported in Perl can be plotted in gnuplotme.
 For example,
 
 ```
---set x file foo 2
+--set x file [foo.1](examples/foo.1) 2
 ```
 
-defines x as a variable with values extracted from the second column of the file "foo", or
+defines x as a variable with values extracted from the second column of the file [foo.1](examples/foo.1), or
 
 ```
 --set x range 2 10 2
@@ -229,7 +231,7 @@ defines x as a variable with the values [2,4,6,8,10], or
 
 defines x as a variable with the values [5,10,15,20,25,30].
 
-Once a variable is defined, the --plot can then be used to plot any function of the defined variables. For example:
+Once a variable is defined, the `--plot` can then be used to plot any function of the defined variables. For example:
 
 ```
 gnuplotme --set x list 1 2 3 4 5 6 
@@ -270,10 +272,10 @@ A function takes as input one value from each variable. Notice that the function
 
 gnuplotme includes some macros that operate on all values of a variable. These macros can be used in "--plot" as part of the function:
 
-* total_<varname>: sum of all values of the variable varname.
-* count_<varname>: how many points the variable has.
-* mean_<varname>: mean value of all values of the variable varname
-* variance_<varname>: the corresponding variance of all values.
+* `total_<varname>`: sum of all values of the variable varname.
+* `count_<varname>`: how many points the variable has.
+* `mean_<varname>`: mean value of all values of the variable varname
+* `variance_<varname>`: the corresponding variance of all values.
 
 For example,
 
@@ -292,19 +294,19 @@ You can also see the other two files: the gnu file [ex7.gnu](examples/ex7.gnu) a
 
 ## AVERAGES, CONFIDENCE INTERVALS, AND REMOVING OUTLIERS
 
-gnuplotme also provides simple method for averaging data from multiple files and plotting the confidence interval, if desired. This is done using the --set option with the avg sub-option (--set <variable_name> avg <column <outliers> <conf> <file1> <file2> ...)
+gnuplotme also provides simple method for averaging data from multiple files and plotting the confidence interval, if desired. This is done using the `--set` option with the avg sub-option (`--set <variable_name> avg <column <outliers> <conf> <file1> <file2> ...`)
 
 Here is an example,
 
 ```
---set z avg 2 1 95 foo.1 foo.2 foo.3 foo.4
+--set z avg 2 1 95 [foo.1](examples/foo.1) [foo.2](examples/foo.2) [foo.3](examples/foo.3) [foo.4](examples/foo.4)
 ```
 
-will average the second column of files foo.1, foo.2, foo.3, and foo.4. It also computes the 95% confidence interval. Other allowed confidence values are 20, 40, 60, 80, 90, 95, 98, and 99 intervals. The variable z will contain the average values of the four files, which can then be used just like any other value. The confidence interval is only plotted when the variable is specified by itself in the --plot command. For example,
+will average the second column of files [foo.1](examples/foo.1), [foo.2](examples/foo.2), [foo.3](examples/foo.3), and [foo.4](examples/foo.4). It also computes the 95% confidence interval. Other allowed confidence values are `20`, `40`, `60`, `80`, `90`, `95`, `98`, and `99` intervals. The variable z will contain the average values of the four files, which can then be used just like any other value. The confidence interval is only plotted when the variable is specified by itself in the `--plot` command. For example,
 
 ```
 gnuplotme --set x file foo.1 1
---set z avg 2 1 95 foo.1 foo.2 foo.3 foo.4
+--set z avg 2 1 95 [foo.1](examples/foo.1) [foo.2](examples/foo.2) [foo.3](examples/foo.3) [foo.4](examples/foo.4)
 --plot x xaxis 
 --plot z avg_example
 --outfile ex8 jpeg 

@@ -104,7 +104,7 @@ nuplotme --file mydata.tex xaxis 1
 --outfile ex1 jpeg
 ```
 
-(examples/ex2.jpg)
+![ex2](examples/ex2.jpg?raw=true "Example 2")
   
 You can also see the other two files: the gnu file ex2.gnu and data file ex2.data
 
@@ -135,7 +135,8 @@ gnuplotme --file mydata.txt xaxis 1
 --outfile ex3 jpeg 
 ```
 
-(examples/ex3.jpg)
+![ex3](examples/ex3.jpg?raw=true "Example 3")
+  
 You can also see the other two files: the gnu file ex3.gnu and data file ex3.data
 
 Additional Controls
@@ -196,7 +197,8 @@ gnuplotme --file mydata.txt xaxis 1
 --outfile ex4 jpeg  
 ```
 
-(examples/ex4.jpg)
+![ex4](examples/ex4.jpg?raw=true "Example 4")  
+  
 You can also see the other two files: the gnu file ex4.gnu and data file ex4.data
 
 ## PLOTTING MATHEMATICAL FUNCTIONS
@@ -239,7 +241,8 @@ gnuplotme --set x list 1 2 3 4 5 6
 
 will plot the values of y with a legend name of RTT and on left axis.
 
-(examples/ex5.jpg)
+![ex5](examples/ex5.jpg?raw=true "Example 5")  
+
 You can also see the other two files: the gnu file ex5.gnu and data file ex5.data
 
 Recall, if the axis name is omitted, the left one is used by default. Here is another example is:
@@ -257,7 +260,8 @@ gnuplotme --set x list 1 2 3 4 5 6
 
 will plot the difference between corresponding square values of x and y on the right axis.
 
-(examples/ex6.jpg)
+![ex6](examples/ex6.jpg?raw=true "Example 6")
+
 You can also see the other two files: the gnu file ex6.gnu and data file ex6.data
 
 ### How functions are computed?
@@ -282,7 +286,8 @@ gnuplotme --set x list 1 2 3 4 5 6
 
 will plot the difference between each value of x and the mean of all values, with label "error".
 
-(examples/ex7.gnu)
+![ex7](examples/ex7.jpg?raw=true "Example 7")  
+
 You can also see the other two files: the gnu file ex7.gnu and data file ex7.data
 
 ## AVERAGES, CONFIDENCE INTERVALS, AND REMOVING OUTLIERS
@@ -306,8 +311,9 @@ gnuplotme --set x file foo.1 1
 ```
 
 will plot the average points of the variable z with the confidence bars.
-
-(examples/ex8.jpg)
+  
+![ex8](examples/ex8.jpg?raw=true "Example 8")
+  
 You can also see the other two files: the gnu file ex8.gnu and data file ex8.data
 
 Reminder, when plotting a function, the confidence interval is not plotted. For example,
